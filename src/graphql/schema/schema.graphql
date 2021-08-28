@@ -1,0 +1,21 @@
+type Inscription {
+    name: String!
+    phone: String!
+    email: String!
+    numberOfPeople: Int!
+}
+
+type Event {
+    maxCapacity: Int!
+    inscriptions: [Inscription]
+}
+
+type Customer {
+    name: String!
+    email: String!
+    events: [Event]
+}
+
+type Query {
+    inscription(id: String!): Inscription
+}

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
-const inscriptionSchema = new mongoose.Schema({
+export const COLLECTION_NAME = 'inscription';
+
+export const inscriptionSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -19,6 +21,6 @@ const inscriptionSchema = new mongoose.Schema({
     },
 });
 
-const inscription = mongoose.model('inscription', inscriptionSchema);
+const inscription = mongoose.model(COLLECTION_NAME, inscriptionSchema);
 
 export default inscription;

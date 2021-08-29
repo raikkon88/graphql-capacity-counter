@@ -19,3 +19,14 @@ type Customer {
 type Query {
     inscription(id: String!): Inscription
 }
+
+input InscriptionInput {
+    name: String!
+    phone: String!
+    email: String!
+    numberOfPeople: Int!
+}
+
+type Mutation {
+    createInscription(content: InscriptionInput!): Inscription
+}

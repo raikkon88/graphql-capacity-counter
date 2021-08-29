@@ -11,6 +11,7 @@
         "generate": "graphql-codegen --config codegen.yml"
     },
     "dependencies": {
+        "apollo-datasource-mongodb": "^0.4.7",
         "apollo-server": "^3.2.0",
         "dotenv": "^10.0.0",
         "eslint": "^7.32.0",

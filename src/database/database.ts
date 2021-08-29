@@ -1,24 +1,17 @@
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { MongoClient } from 'mongodb';
 
 dotenv.config();
 
-mongoose.Promise = global.Promise;
+let client: MongoClient;
 
-const connection = mongoose.connect(process.env.DATABASE_URL || '', {
-    dbName: process.env.DATABASE_NAME,
-    user: process.env.DATABASE_USERNAME,
-    pass: process.env.DATABASE_PASSWORD,
-    autoIndex: true,
-    useNewUrlParser: true,
-});
-
-mongoose.set('useCreateIndex', true);
-
-connection
-    .then(db => db)
-    .catch(err => {
-        console.log(err);
-    });
-
-export default connection;
+export const getConnection = () => {
+    if (!client) {
+        client = new MongoClient(process.env.DATABASE_URL || '', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        client.connect();
+    }
+    return client;
+};

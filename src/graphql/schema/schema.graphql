@@ -1,19 +1,22 @@
-type Inscription {
-    name: String!
-    phone: String!
-    email: String!
-    numberOfPeople: Int!
+type Inscription @entity {
+    id: String! @id
+    name: String! @column
+    phone: String! @column
+    email: String! @column
+    numberOfPeople: Int! @column
 }
 
-type Event {
-    maxCapacity: Int!
-    inscriptions: [Inscription]
+type Event @entity {
+    id: String! @id
+    maxCapacity: Int! @column
+    inscriptions: [Inscription] @link
 }
 
-type Customer {
-    name: String!
-    email: String!
-    events: [Event]
+type Customer @entity {
+    id: String @id
+    name: String! @column
+    email: String! @column
+    events: [Event] @link
 }
 
 type Query {

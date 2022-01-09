@@ -4,3 +4,6 @@ generates:
     src/types/generated/graphql.ts:
         plugins:
             - typescript
+            - typescript-mongodb
+        config:
+            - avoidOptionals: true
